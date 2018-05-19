@@ -2,7 +2,7 @@
 
 This repository consists of a small daemon written in Python and its corresponding `service` configuration. The goal of the daemon is to accept multipart requests and only forward the first found JSON part of the multipart request to a given (remote) server.
 
-The idea is to link a Plex Media Server (with a Premium subscription) and a Home Assistant instance. A Plex Media Server provides so called webhooks to quickly inform external services about its state. Unfortunately, Plex sends its updates as multipart messages while Home Assistant (via its scripts API) is expecting pure JSON messages. Now, instead of directly calling the Home Assistant API, the Plex Media Server can send its update to this daemon which then only forwards the valid JSON to the Home Assistant instance.
+The idea is to link a [Plex Media Server](https://www.plex.tv/downloads/#plex-media-server) (with a [Premium subscription](https://www.plex.tv/features/plex-pass/)) and a [Home Assistant](https://www.home-assistant.io) instance. A Plex Media Server provides so called [webhooks](https://support.plex.tv/articles/115002267687-webhooks/) to quickly inform external services about its state. Unfortunately, Plex sends its updates as [multipart messages](https://github.com/home-assistant/home-assistant/issues/6080) while Home Assistant (via its [scripts](https://www.home-assistant.io/docs/scripts/) [API](https://developers.home-assistant.io/docs/en/external_api_rest.html)) is expecting pure JSON messages. Now, instead of directly calling the Home Assistant API, the Plex Media Server can send its update to this daemon which then only forwards the valid JSON to the Home Assistant instance.
 
 ## Installation
 
@@ -14,7 +14,7 @@ The idea is to link a Plex Media Server (with a Premium subscription) and a Home
 6. Enable the new service to automatically start upon boot: `sudo systemctl enable transfer-multipart`
 7. Start the service `sudo systemctl start transfer-multipart`
 
-# Command Line Interface
+## Command Line Interface
 
 The Python script comes with a command line interface which works as following:
 
