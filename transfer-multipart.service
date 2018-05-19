@@ -1,0 +1,10 @@
+[Unit]
+Description=Transfer Multipart JSON Messages
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=<PYTHON EXECUTABLE> <PATH>/transfer-multipart.py -r <URL> --daemon --pid-file /var/run/transfer-multipart.pid --log-file /var/log/transfer-multipart.log
+
+[Install]
+WantedBy=multi-user.target
